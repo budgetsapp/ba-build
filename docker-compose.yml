@@ -1,0 +1,14 @@
+version: "3"
+services:
+  ba-identity:
+    build: ./ba-auth
+    ports:
+      - "5011:8080"
+    volumes:
+      - /C/Users/Vadim/Documents/db:/usr/db
+  ba-api:
+    build: ./ba-api
+    ports:
+      - "5010:8080"
+    volumes:
+      - /C/Users/Vadim/Documents/db:/usr/db
