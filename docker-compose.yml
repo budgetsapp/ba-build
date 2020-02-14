@@ -3,12 +3,19 @@ services:
   ba-identity:
     build: ./ba-auth
     ports:
-      - "5011:8080"
+      - "5011:8080" # 5011 used for public access
     volumes:
       - /C/Users/Vadim/Documents/db:/usr/db
   ba-api:
     build: ./ba-api
     ports:
-      - "5010:8080"
+      - "5010:8080" # 5010 used for public access
     volumes:
       - /C/Users/Vadim/Documents/db:/usr/db
+  ba-web:
+    build: ./ba-web
+    ports:
+      - "5012:80" # 5012 used for public access
+    environment:
+      - REACT_APP_IDENTITY_URL=http://ba-identity:8080
+      - REACT_APP_BASE_URL=http://ba-api:8080
