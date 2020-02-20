@@ -1,7 +1,7 @@
 version: "3"
 services:
   ba-identity:
-    build: ./ba-auth
+    build: ./ba-identity
     ports:
       - "5011:8080" # 5011 used for public access
     volumes:
